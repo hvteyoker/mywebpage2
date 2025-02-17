@@ -30,9 +30,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white text-[#222222] geometric-bg"
       style={{ 
-    backgroundImage: "url('/background.jpg')", 
-    backgroundSize: "cover", 
-    backgroundPosition: "center" 
+    backgroundImage: "url('/your-image.jpg')", 
+    backgroundSize: "1920px 1080px", 
+    backgroundPosition: "center", 
+    backgroundRepeat: "no-repeat",
+    width: "1920px",  
+    height: "1080px" 
   }}
       >
       {/* Header */}
