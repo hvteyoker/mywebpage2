@@ -34,6 +34,7 @@ const Index = () => {
     backgroundSize: "1920px 1080px", 
     backgroundPosition: "center", 
     backgroundRepeat: "no-repeat",
+    backgroundAttachment: "fixed",
     width: "1920px",  
     height: "1080px" 
   }}
