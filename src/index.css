@@ -10,6 +10,9 @@
 
   body {
     @apply bg-white text-[#222222] antialiased overflow-x-hidden;
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   ::selection {
