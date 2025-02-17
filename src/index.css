@@ -36,13 +36,8 @@
   }
 }
 
-.img{
-            background-image: url("background.jpg");
-            background-size: no-repeat;
-            background-position: center;
-            background-size: cover;
-            height: 1920px;
-            width: 1080px;
-
-}
+.geometric-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.01) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.01) 1px, transparent 1px);
+  background-size: 4rem 4rem;
 }
