@@ -28,7 +28,13 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-[#222222] geometric-bg">
+    <div className="min-h-screen bg-white text-[#222222] geometric-bg"
+      style={{ 
+    backgroundImage: "url('/background.jpg')", 
+    backgroundSize: "cover", 
+    backgroundPosition: "center" 
+  }}
+      >
       {/* Header */}
       <motion.header
         initial={{ y: -100 }}
