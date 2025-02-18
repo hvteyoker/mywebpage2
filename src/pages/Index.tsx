@@ -96,31 +96,6 @@ const Index = () => {
         </div>
       </motion.header>
 
-      {/* Hero Section */}
-      <motion.section
-        ref={heroRef}
-        initial={{ opacity: 0, y: 20 }}
-        animate={heroInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8 }}
-        className="h-screen flex flex-col items-center justify-center px-6 relative"
-      >
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 text-center tracking-tighter">
-          Radical Minimalism.
-          <br />
-          Maximum Impact.
-        </h1>
-        <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-md text-center">
-          We craft digital experiences that leave a lasting impression through bold simplicity.
-        </p>
-        <motion.button 
-          className="px-8 py-3 border border-[#222222] hover:bg-[#222222] hover:text-white transition-all duration-300"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          Start a Project
-        </motion.button>
-      </motion.section>
-
       {/* Manifesto Section */}
       <motion.section
         initial={{ opacity: 0 }}
