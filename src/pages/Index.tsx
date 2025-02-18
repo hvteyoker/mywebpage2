@@ -51,8 +51,7 @@ const Index = () => {
       >
         {/* Видео-фон */}
         <video 
-          autoPlay 
-          loop 
+          autoPlay
           muted 
           playsInline 
           className="absolute inset-0 w-full h-full object-cover z-[-1]"
