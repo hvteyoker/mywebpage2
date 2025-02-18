@@ -79,10 +79,6 @@ const Index = () => {
         </motion.button>
       </motion.section>
 
-      {/* Остальные секции (Manifesto, About, Work и т. д.) */}
-    </div>
-  );
-};
       {/* Header */}
       <motion.header
         initial={{ y: -100 }}
