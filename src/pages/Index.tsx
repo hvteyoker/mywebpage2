@@ -126,7 +126,7 @@ const Index = () => {
         </div>
       </motion.section>
       
-      {/* Founders Section */}
+          {/* Founders Section */}
 <motion.section
   initial={{ opacity: 0 }}
   whileInView={{ opacity: 1 }}
@@ -136,13 +136,13 @@ const Index = () => {
   <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
     {[
       {
-        image: "/alex.JPG",
+        img: "/alex.JPG", 
         name: "Alexander Tatarnikov",
         role: "Creative Director & Co-founder",
         bio: "Pushing the boundaries of digital minimalism through considered design and purposeful interaction."
       },
       {
-        image: "/Dima.jpg",
+        img: "/Dima.jpg", 
         name: "Dmitry Berezhnoi",
         role: "Technical Director & Co-founder",
         bio: "Bridging the gap between aesthetic vision and technical excellence with innovative solutions."
@@ -155,13 +155,16 @@ const Index = () => {
         transition={{ delay: index * 0.2 }}
         className="space-y-4 text-center"
       >
-        <div className="aspect-square bg-gray-50 mb-6 overflow-hidden">
-          <img
-            src={founder.image}
+        <div className="aspect-square overflow-hidden rounded-xl shadow-lg">
+          <motion.img
+            src={founder.img} 
             alt={founder.name}
-            className="w-48 h-48 object-cover rounded-2xl shadow-lg"
+            className="w-full h-full object-cover" 
+            whileHover={{ scale: 1.05 }} 
+            transition={{ duration: 0.3 }}
           />
         </div>
+        {/* Остальная информация о человеке */}
         <h3 className="text-2xl font-light">{founder.name}</h3>
         <p className="text-sm text-gray-500 uppercase tracking-wider">{founder.role}</p>
         <p className="text-gray-600 leading-relaxed">{founder.bio}</p>
@@ -169,6 +172,7 @@ const Index = () => {
     ))}
   </div>
 </motion.section>
+      
       {/* About Section */}
       <motion.section
         ref={aboutRef}
