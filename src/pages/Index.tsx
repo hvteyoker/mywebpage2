@@ -136,13 +136,13 @@ const Index = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
           {[
             {
-              image: url('alex.JPG'),
+              image: 'alex.JPG',
               name: "Alexander Tatarnikov",
               role: "Creative Director & Co-founder",
               bio: "Pushing the boundaries of digital minimalism through considered design and purposeful interaction."
             },
             {
-              image: url('Dima.jpg'),
+              image: 'Dima.jpg',
               name: "Dmitry Berezhnoi",
               role: "Technical Director & Co-founder",
               bio: "Bridging the gap between aesthetic vision and technical excellence with innovative solutions."
