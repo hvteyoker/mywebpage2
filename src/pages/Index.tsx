@@ -41,45 +41,45 @@ const Index = () => {
         </div>
       </motion.header>
 
-      {/* 🎬 Hero Section with Background Video */}
-      <motion.section
-        ref={heroRef}
-        initial={{ opacity: 0, y: 20 }}
-        animate={heroInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8 }}
-        className="relative h-screen flex flex-col items-center justify-center px-6 text-white"
-      >
-        {/* Видео-фон */}
-        <video 
-          key="background"
-          autoPlay
-          loop
-          muted 
-          playsInline 
-          poster
-          className="absolute inset-0 w-full h-full object-cover z-[-1]"
-        >
-          <source src="/background.mp4" type="video/mp4" />
-        </video>
+      {/* Hero Section */}
+<motion.section
+  ref={heroRef}
+  initial={{ opacity: 0, y: 20 }}
+  animate={heroInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.8 }}
+  className="h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden"
+>
+  {/* Видео фон */}
+  <video 
+    key="hero-video"
+    autoPlay 
+    loop 
+    muted 
+    playsInline 
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="background.mp4" type="video/mp4" />
+  </video>
 
-        {/* Затемнение для читаемости текста (если нужно) */}
-        <div className="absolute inset-0 bg-black/30 z-[-1]" />
-
-        {/* Контент */}
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 text-center tracking-tighter">
-          Radical Minimalism.<br />Maximum Impact.
-        </h1>
-        <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-md text-center">
-          We craft digital experiences that leave a lasting impression through bold simplicity.
-        </p>
-        <motion.button 
-          className="px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          Start a Project
-        </motion.button>
-      </motion.section>
+  {/* Контент поверх видео */}
+  <div className="relative z-10 text-center">
+    <h1 className="text-6xl md:text-8xl font-bold mb-6 text-center tracking-tighter">
+      Radical Minimalism.
+      <br />
+      Maximum Impact.
+    </h1>
+    <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-md text-center">
+      We craft digital experiences that leave a lasting impression through bold simplicity.
+    </p>
+    <motion.button 
+      className="px-8 py-3 border border-[#222222] hover:bg-[#222222] hover:text-white transition-all duration-300"
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+    >
+      Start a Project
+    </motion.button>
+  </div>
+</motion.section>
 
       {/* Header */}
       <motion.header
