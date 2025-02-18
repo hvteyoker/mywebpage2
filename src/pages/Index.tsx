@@ -10,9 +10,6 @@ const Index = () => {
   const [contactRef, contactInView] = useInView({ triggerOnce: true });
   const [isHeaderVisible, setHeaderVisible] = useState(false);
   const { scrollY } = useScroll();
-  const Header = () => {
-  const [isHeaderVisible, setHeaderVisible] = useState(true);
-  const [isMenuOpen, setMenuOpen] = useState(false);
 
   // Header visibility logic
   useEffect(() => {
@@ -20,7 +17,9 @@ const Index = () => {
     
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setHeaderVisible(currentScrollY > 100 && currentScrollY < lastScrollY);
+      setHeaderVisible(
+        currentScrollY > 100 && currentScrollY < lastScrollY
+      );
       lastScrollY = currentScrollY;
     };
 
@@ -29,17 +28,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-[#222222] geometric-bg"
-      style={{ 
-        backgroundImage: "url('/background.jpg')", 
-        backgroundSize: "1920px 1080px", 
-        backgroundPosition: "center", 
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
-        width: "1920px",  
-        height: "1080px"
-      }}
-    >
+    <div className="min-h-screen bg-white text-[#222222] geometric-bg">
       {/* Header */}
       <motion.header
         initial={{ y: -100 }}
@@ -49,35 +38,12 @@ const Index = () => {
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <span className="font-medium tracking-tight">RECKLESS</span>
-
-          {/* Кнопка бургера */}
-          <button 
-            className="flex items-center gap-2 link-underline"
-            onClick={() => setMenuOpen(!isMenuOpen)}
-          >
-            <span className="text-sm">{isMenuOpen ? "Close" : "Menu"}</span>
-            {isMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+          <button className="flex items-center gap-2 link-underline">
+            <span className="text-sm">Menu</span>
+            <Menu className="w-4 h-4" />
           </button>
         </div>
       </motion.header>
-
-      {/* Бургер-меню */}
-      <motion.nav
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: isMenuOpen ? 0 : -100, opacity: isMenuOpen ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-        className={`fixed top-16 left-0 right-0 bg-white shadow-md z-40 p-6 flex flex-col items-center space-y-4 ${
-          isMenuOpen ? "block" : "hidden"
-        }`}
-      >
-        <a href="#home" className="text-lg font-medium hover:text-gray-700">Home</a>
-        <a href="#about" className="text-lg font-medium hover:text-gray-700">About Us</a>
-        <a href="#portfolio" className="text-lg font-medium hover:text-gray-700">Portfolio</a>
-      </motion.nav>
-    </div>
-  );
-};
-export default Header;
 
       {/* Hero Section */}
       <motion.section
