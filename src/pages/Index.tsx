@@ -127,48 +127,50 @@ const Index = () => {
       </motion.section>
       
       {/* Founders Section */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative"
+<motion.section
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.8 }}
+  className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative"
+>
+  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+    {[
+      {
+        image: "/alex.jpg", // Указываем путь от public
+        name: "Alexander Tatarnikov",
+        role: "Creative Director & Co-founder",
+        bio: "Pushing the boundaries of digital minimalism through considered design and purposeful interaction."
+      },
+      {
+        image: "/Dima.jpg",
+        name: "Dmitry Berezhnoi",
+        role: "Technical Director & Co-founder",
+        bio: "Bridging the gap between aesthetic vision and technical excellence with innovative solutions."
+      }
+    ].map((founder, index) => (
+      <motion.div
+        key={founder.name}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: index * 0.2 }}
+        className="space-y-4"
       >
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
-          {[
-            {
-              image: url('alex.jpg'),
-              name: "Alexander Tatarnikov",
-              role: "Creative Director & Co-founder",
-              bio: "Pushing the boundaries of digital minimalism through considered design and purposeful interaction."
-            },
-            {
-              image: url('Dima.jpg'),
-              name: "Dmitry Berezhnoi",
-              role: "Technical Director & Co-founder",
-              bio: "Bridging the gap between aesthetic vision and technical excellence with innovative solutions."
-            }
-          ].map((founder, index) => (
-            <motion.div
-              key={founder.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              className="space-y-4"
-            >
-              <div className="aspect-square bg-gray-50 mb-6 overflow-hidden">
-                <motion.div
-                  className="w-full h-full"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </div>
-              <h3 className="text-2xl font-light">{founder.name}</h3>
-              <p className="text-sm text-gray-500 uppercase tracking-wider">{founder.role}</p>
-              <p className="text-gray-600 leading-relaxed">{founder.bio}</p>
-            </motion.div>
-          ))}
+        <div className="aspect-square bg-gray-50 mb-6 overflow-hidden">
+          <motion.img
+            src={founder.image}
+            alt={founder.name}
+            className="w-full h-full object-cover"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          />
         </div>
-      </motion.section>
+        <h3 className="text-2xl font-light">{founder.name}</h3>
+        <p className="text-sm text-gray-500 uppercase tracking-wider">{founder.role}</p>
+        <p className="text-gray-600 leading-relaxed">{founder.bio}</p>
+      </motion.div>
+    ))}
+  </div>
+</motion.section>
       {/* About Section */}
       <motion.section
         ref={aboutRef}
