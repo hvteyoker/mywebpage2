@@ -49,7 +49,7 @@ const Index = () => {
   transition={{ duration: 0.8 }}
   className="relative h-screen flex flex-col items-center justify-center px-6 text-center overflow-hidden"
 >
-    {/* Видео фон */}
+     {/* Видео фон */}
   <video 
     key="hero-video"
     autoPlay 
@@ -83,43 +83,6 @@ const Index = () => {
     </motion.button>
   </div>
 </motion.section>
-
-  {/* Контент поверх видео */}
-  <div className="relative z-10 text-center">
-    <h1 className="text-6xl md:text-8xl font-bold mb-6 text-center tracking-tighter">
-      Radical Minimalism.
-      <br />
-      Maximum Impact.
-    </h1>
-    <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-md text-center">
-      We craft digital experiences that leave a lasting impression through bold simplicity.
-    </p>
-    <motion.button 
-      className="px-8 py-3 border border-[#222222] hover:bg-[#222222] hover:text-white transition-all duration-300"
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-    >
-      Start a Project
-    </motion.button>
-  </div>
-</motion.section>
-
-      {/* Header */}
-      <motion.header
-  initial={{ y: -100 }}
-  animate={{ y: isHeaderVisible ? 0 : -100 }}
-  transition={{ duration: 0.3 }}
-  className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100"
->
-  <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-    <span className="font-medium tracking-tight">RECKLESS</span>
-    <button className="flex items-center gap-2 link-underline">
-      <span className="text-sm">Menu</span>
-      <Menu className="w-4 h-4" />  
-    </button>
-  </div>
-</motion.header>
-
       {/* Manifesto Section */}
       <motion.section
         initial={{ opacity: 0 }}
