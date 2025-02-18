@@ -12,6 +12,7 @@ const Index = () => {
   const { scrollY } = useScroll();
 
   // Header visibility logic
+ // Header visibility logic
   useEffect(() => {
     let lastScrollY = window.scrollY;
     
@@ -27,62 +28,49 @@ const Index = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
- return (
+  return (
     <div className="min-h-screen bg-white text-[#222222] geometric-bg">
       {/* Header */}
       <motion.header
         initial={{ y: -100 }}
-        animate={{ y: 0 }}
+        animate={{ y: isHeaderVisible ? 0 : -100 }}
         transition={{ duration: 0.3 }}
         className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100"
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <span className="font-medium tracking-tight">RECKLESS</span>
+          <button className="flex items-center gap-2 link-underline">
+            <span className="text-sm">Menu</span>
+            <Menu className="w-4 h-4" />
+          </button>
         </div>
       </motion.header>
 
       {/* Hero Section */}
-<motion.section
-  ref={heroRef}
-  initial={{ opacity: 0, y: 20 }}
-  animate={heroInView ? { opacity: 1, y: 0 } : {}}
-  transition={{ duration: 0.8 }}
-  className="relative h-screen flex flex-col items-center justify-center px-6 text-center overflow-hidden"
->
-     {/* Видео фон */}
-  <video 
-    key="hero-video"
-    autoPlay 
-    loop 
-    muted 
-    playsInline 
-    className="absolute inset-0 w-full h-full object-cover"
-  >
-    <source src="/videos/hero-bg.mp4" type="video/mp4" />
-  </video>
+      <motion.section
+        ref={heroRef}
+        initial={{ opacity: 0, y: 20 }}
+        animate={heroInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8 }}
+        className="h-screen flex flex-col items-center justify-center px-6 relative"
+      >
+        <h1 className="text-6xl md:text-8xl font-bold mb-6 text-center tracking-tighter">
+          Radical Minimalism.
+          <br />
+          Maximum Impact.
+        </h1>
+        <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-md text-center">
+          We craft digital experiences that leave a lasting impression through bold simplicity.
+        </p>
+        <motion.button 
+          className="px-8 py-3 border border-[#222222] hover:bg-[#222222] hover:text-white transition-all duration-300"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          Start a Project
+        </motion.button>
+      </motion.section>
 
-  {/* Затемняющий слой, чтобы текст был читаемым */}
-  <div className="absolute inset-0 bg-black/20" />
-
-  {/* Контент поверх видео */}
-  <div className="relative z-10 max-w-3xl mx-auto">
-    <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tighter">
-      Radical Minimalism.
-      <br />
-      Maximum Impact.
-    </h1>
-    <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-md mx-auto">
-      We craft digital experiences that leave a lasting impression through bold simplicity.
-    </p>
-    <motion.button 
-      className="px-8 py-3 border border-[#222222] hover:bg-[#222222] hover:text-white transition-all duration-300"
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-    >
-      Start a Project
-    </motion.button>
-  </div>
-</motion.section>
       {/* Manifesto Section */}
       <motion.section
         initial={{ opacity: 0 }}
@@ -127,55 +115,50 @@ const Index = () => {
           ))}
         </div>
       </motion.section>
-
+      
       {/* Founders Section */}
-     {/* Founders Section */}
-<motion.section
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  transition={{ duration: 0.8 }}
-  className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative"
->
-  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
-    {[
-      {
-        img: "/alex.JPG", // 
-        name: "Alexander Tatarnikov",
-        role: "Creative Director & Co-founder",
-        bio: "Pushing the boundaries of digital minimalism through considered design and purposeful interaction."
-      },
-      {
-        img: "/Dima.jpg", 
-        name: "Dmitry Berezhnoi",
-        role: "Technical Director & Co-founder",
-        bio: "Bridging the gap between aesthetic vision and technical excellence with innovative solutions."
-      }
-    ].map((founder, index) => (
-      <motion.div
-        key={founder.name}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: index * 0.2 }}
-        className="space-y-4 text-center"
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative"
       >
-        <div className="aspect-square overflow-hidden rounded-xl shadow-lg">
-          <motion.img
-            src={founder.img} 
-            alt={founder.name}
-            className="w-full h-full object-cover" 
-            whileHover={{ scale: 1.05 }} 
-            transition={{ duration: 0.3 }}
-          />
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+          {[
+            {
+              img: "/alex.JPG",
+              name: "Alexander Tatarnikov",
+              role: "Creative Director & Co-founder",
+              bio: "Pushing the boundaries of digital minimalism through considered design and purposeful interaction."
+            },
+            {
+              img: "/Dima.jpg",
+              name: "Dmitry Berezhnoi",
+              role: "Technical Director & Co-founder",
+              bio: "Bridging the gap between aesthetic vision and technical excellence with innovative solutions."
+            }
+          ].map((founder, index) => (
+            <motion.div
+              key={founder.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 }}
+              className="space-y-4"
+            >
+              <div className="aspect-square bg-gray-50 mb-6 overflow-hidden">
+                <motion.div
+                  className="w-full h-full"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </div>
+              <h3 className="text-2xl font-light">{founder.name}</h3>
+              <p className="text-sm text-gray-500 uppercase tracking-wider">{founder.role}</p>
+              <p className="text-gray-600 leading-relaxed">{founder.bio}</p>
+            </motion.div>
+          ))}
         </div>
-        {/* Остальная информация о человеке */}
-        <h3 className="text-2xl font-light">{founder.name}</h3>
-        <p className="text-sm text-gray-500 uppercase tracking-wider">{founder.role}</p>
-        <p className="text-gray-600 leading-relaxed">{founder.bio}</p>
-      </motion.div>
-    ))}
-  </div>
-</motion.section>
-
+      </motion.section>
       {/* About Section */}
       <motion.section
         ref={aboutRef}
