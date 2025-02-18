@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Index = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true });
@@ -10,6 +10,9 @@ const Index = () => {
   const [contactRef, contactInView] = useInView({ triggerOnce: true });
   const [isHeaderVisible, setHeaderVisible] = useState(false);
   const { scrollY } = useScroll();
+  const Header = () => {
+  const [isHeaderVisible, setHeaderVisible] = useState(true);
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
   // Header visibility logic
   useEffect(() => {
@@ -74,6 +77,7 @@ const Index = () => {
     </div>
   );
 };
+export default Header;
 
       {/* Hero Section */}
       <motion.section
