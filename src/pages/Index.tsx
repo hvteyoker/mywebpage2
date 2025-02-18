@@ -51,6 +51,7 @@ const Index = () => {
       >
         {/* Видео-фон */}
         <video 
+          key="background"
           autoPlay
           loop
           muted 
