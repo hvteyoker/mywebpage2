@@ -11,7 +11,6 @@ const Index = () => {
   const [isHeaderVisible, setHeaderVisible] = useState(false);
   const { scrollY } = useScroll();
 
-  // Header visibility logic
  // Header visibility logic
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -29,7 +28,18 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-[#222222] geometric-bg">
+    <div 
+        className="min-h-screen text-[#222222]" 
+        style={{
+            backgroundImage: "url('background.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundAttachment: "fixed",
+            backgroundRepeat: "no-repeat",
+            width: "1920px",  
+            height: "1080px"   
+        }}
+    >
       {/* Header */}
       <motion.header
         initial={{ y: -100 }}
