@@ -52,8 +52,10 @@ const Index = () => {
         {/* Видео-фон */}
         <video 
           autoPlay
+          loop
           muted 
           playsInline 
+          poster
           className="absolute inset-0 w-full h-full object-cover z-[-1]"
         >
           <source src="/background.mp4" type="video/mp4" />
