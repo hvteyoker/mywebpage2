@@ -42,7 +42,7 @@ const Index = () => {
           Ваш браузер не поддерживает видео-тег.
         </video>
         {/* Затемняющий слой для контраста */}
-        <div className="absolute top-0 left-0 w-full h-full bg-black/20" />
+        <div className="absolute top-0 left-0 w-full h-full bg-black/30" />
       </div>
 
       {/* Header */}
@@ -74,7 +74,7 @@ const Index = () => {
           <br />
           Maximum Impact.
         </h1>
-        <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-md">
+        <p className="text-lg md:text-xl text-white-100 mb-8 max-w-md">
           We craft digital experiences that leave a lasting impression through bold simplicity.
         </p>
         <motion.button
