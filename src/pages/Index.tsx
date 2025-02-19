@@ -171,7 +171,7 @@ const Index = () => {
         </div>
         {/* Остальная информация о человеке */}
         <h3 className="text-2xl font-light">{founder.name}</h3>
-        <p className="text-sm text-gray-500 uppercase tracking-wider">{founder.role}</p>
+        <p className="text-sm text-white-100 uppercase tracking-wider">{founder.role}</p>
         <p className="text-gray-600 leading-relaxed">{founder.bio}</p>
       </motion.div>
     ))}
@@ -194,7 +194,7 @@ const Index = () => {
           <p className="text-3xl md:text-4xl font-light leading-relaxed mb-12">
             We believe in the power of reduction. Every pixel, every interaction, every moment is crafted with purpose.
           </p>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-white-100">
             Founded in 2024, Reckless.Studio pushes the boundaries of digital design through radical simplicity.
           </p>
         </div>
@@ -243,14 +243,14 @@ const Index = () => {
             <input
               type="email"
               placeholder="Email"
-              className="w-full p-3 border-b border-gray-300 focus:border-[#222222] outline-none transition-colors bg-transparent"
+              className="w-full p-3 border-b border-white-100 focus:border-[#222222] outline-none transition-colors bg-transparent"
             />
           </div>
           <div>
             <textarea
               placeholder="Message"
               rows={4}
-              className="w-full p-3 border-b border-gray-300 focus:border-[#222222] outline-none transition-colors bg-transparent resize-none"
+              className="w-full p-3 border-b border-white-100 focus:border-[#222222] outline-none transition-colors bg-transparent resize-none"
             />
           </div>
           <motion.button
@@ -265,7 +265,7 @@ const Index = () => {
       </motion.section>
 
       {/* Running Text Marquee */}
-      <div className="h-24 border-t border-gray-100 flex items-center overflow-hidden">
+      <div className="h-24 border-t border-white-100 flex items-center overflow-hidden">
         <div className="marquee-container">
           <div className="marquee-content text-6xl font-light tracking-tight text-gray-200">
             RADICAL SIMPLICITY · BOLD DESIGN · MAXIMUM IMPACT · 
