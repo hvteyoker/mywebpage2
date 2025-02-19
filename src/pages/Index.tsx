@@ -64,7 +64,7 @@ const Index = () => {
       >
         <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tighter">
           Radical Minimalism.
-          <br />
+          <br/>
           Maximum Impact.
         </h1>
         <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-md">
@@ -78,7 +78,7 @@ const Index = () => {
           Start a Project
         </motion.button>
       </motion.section>
-    </div>
+    
 
       {/* Manifesto Section */}
       <motion.section
