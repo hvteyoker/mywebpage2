@@ -1,25 +1,19 @@
 import { useEffect, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 
 const Index = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true });
-  const [aboutRef, aboutInView] = useInView({ triggerOnce: true });
-  const [workRef, workInView] = useInView({ triggerOnce: true });
-  const [contactRef, contactInView] = useInView({ triggerOnce: true });
   const [isHeaderVisible, setHeaderVisible] = useState(false);
   const { scrollY } = useScroll();
 
- // Header visibility logic
   useEffect(() => {
     let lastScrollY = window.scrollY;
-    
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setHeaderVisible(
-        currentScrollY > 100 && currentScrollY < lastScrollY
-      );
+      setHeaderVisible(currentScrollY > 100 && currentScrollY < lastScrollY);
       lastScrollY = currentScrollY;
     };
 
@@ -28,18 +22,22 @@ const Index = () => {
   }, []);
 
   return (
-    <div 
-        className="min-h-screen text-[#222222]" 
-        style={{
-            backgroundImage: "url('background.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundAttachment: "fixed",
-            backgroundRepeat: "no-repeat",
-            width: "1920px",  
-            height: "1080px"   
-        }}
-    >
+    <div className="relative min-h-screen text-[#222222]">
+      {/* Видео-бэкграунд */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      >
+        <source src="background.mp4" type="video/mp4" />
+        Ваш браузер не поддерживает видео-тег.
+      </video>
+
+      {/* Затемняющий слой для лучшей читаемости */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black/20" />
+
       {/* Header */}
       <motion.header
         initial={{ y: -100 }}
@@ -62,24 +60,25 @@ const Index = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={heroInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8 }}
-        className="h-screen flex flex-col items-center justify-center px-6 relative"
+        className="relative h-screen flex flex-col items-center justify-center px-6 text-white text-center"
       >
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 text-center tracking-tighter">
+        <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tighter">
           Radical Minimalism.
           <br />
           Maximum Impact.
         </h1>
-        <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-md text-center">
+        <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-md">
           We craft digital experiences that leave a lasting impression through bold simplicity.
         </p>
-        <motion.button 
-          className="px-8 py-3 border border-[#222222] hover:bg-[#222222] hover:text-white transition-all duration-300"
+        <motion.button
+          className="px-8 py-3 border border-white hover:bg-white hover:text-black transition-all duration-300"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
           Start a Project
         </motion.button>
       </motion.section>
+    </div>
 
       {/* Manifesto Section */}
       <motion.section
