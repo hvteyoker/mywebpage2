@@ -11,7 +11,7 @@ const Index = () => {
   const [isHeaderVisible, setHeaderVisible] = useState(false);
   const { scrollY } = useScroll();
 
- // Header visibility logic
+  // Header visibility logic
   useEffect(() => {
     let lastScrollY = window.scrollY;
     
@@ -29,20 +29,21 @@ const Index = () => {
 
   return (
     <div className="relative min-h-screen text-[#222222]">
-      {/* Видео-бэкграунд */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover"
-      >
-        <source src="/background.mp4" type="video/mp4" />
-        Ваш браузер не поддерживает видео-тег.
-      </video>
-
-      {/* Затемняющий слой для контраста */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black/20" />
+      {/* Контейнер с фиксированным видео-бэкграундом */}
+      <div className="fixed top-0 left-0 w-full h-screen z-[-1]">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="background.mp4" type="video/mp4" />
+          Ваш браузер не поддерживает видео-тег.
+        </video>
+        {/* Затемняющий слой для контраста */}
+        <div className="absolute top-0 left-0 w-full h-full bg-black/20" />
+      </div>
 
       {/* Header */}
       <motion.header
@@ -66,25 +67,25 @@ const Index = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={heroInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8 }}
-        className="h-screen flex flex-col items-center justify-center px-6 relative"
+        className="relative h-screen flex flex-col items-center justify-center px-6 text-white text-center z-10"
       >
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 text-center tracking-tighter">
+        <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tighter">
           Radical Minimalism.
           <br />
           Maximum Impact.
         </h1>
-        <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-md text-center">
+        <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-md">
           We craft digital experiences that leave a lasting impression through bold simplicity.
         </p>
-        <motion.button 
-          className="px-8 py-3 border border-[#222222] hover:bg-[#222222] hover:text-white transition-all duration-300"
+        <motion.button
+          className="px-8 py-3 border border-white hover:bg-white hover:text-black transition-all duration-300"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
           Start a Project
         </motion.button>
       </motion.section>
-
+      
       {/* Manifesto Section */}
       <motion.section
         initial={{ opacity: 0 }}
