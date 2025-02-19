@@ -47,19 +47,19 @@ const Index = () => {
 
       {/* Header */}
       <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: isHeaderVisible ? 0 : -100 }}
-        transition={{ duration: 0.3 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100"
-      >
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <span className="font-medium tracking-tight">RECKLESS</span>
-          <button className="flex items-center gap-2 link-underline">
-            <span className="text-sm">Menu</span>
-            <Menu className="w-4 h-4" />
-          </button>
-        </div>
-      </motion.header>
+  initial={{ y: -100 }}
+  animate={{ y: isHeaderVisible ? 0 : -100 }}
+  transition={{ duration: 0.3 }}
+  className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100"
+>
+  <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <img src="/logo.png" alt="Reckless Logo" className="h-10" />
+    <button className="flex items-center gap-2 link-underline">
+      <span className="text-sm">Menu</span>
+      <Menu className="w-4 h-4" />
+    </button>
+  </div>
+</motion.header>
 
       {/* Hero Section */}
       <motion.section
