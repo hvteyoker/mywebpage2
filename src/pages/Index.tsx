@@ -172,7 +172,7 @@ const Index = () => {
         {/* Остальная информация о человеке */}
         <h3 className="text-2xl font-light">{founder.name}</h3>
         <p className="text-sm text-white-100 uppercase tracking-wider">{founder.role}</p>
-        <p className="text-gray-600 leading-relaxed">{founder.bio}</p>
+        <p className="text-white-100 leading-relaxed">{founder.bio}</p>
       </motion.div>
     ))}
   </div>
