@@ -28,7 +28,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen text-[#222222]">
+    <div className="relative min-h-screen text-[#ffffff]">
       {/* Контейнер с фиксированным видео-бэкграундом */}
       <div className="fixed top-0 left-0 w-full h-screen z-[-1]">
         <video
