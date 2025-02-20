@@ -42,7 +42,7 @@ const Index = () => {
           Ваш браузер не поддерживает видео-тег.
         </video>
         {/* Затемняющий слой для контраста */}
-        <div className="absolute top-0 left-0 w-full h-full bg-black/39" />
+        <div className="absolute top-0 left-0 w-full h-full bg-black/21" />
       </div>
 
       {/* Header */}
