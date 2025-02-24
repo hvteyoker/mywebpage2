@@ -142,7 +142,7 @@ const Index = () => {
     {[
       {
         img: "/alex.JPG", 
-        name: "Denis Avramenko",
+        name: "Alexander Tatarnikov",
         role: "Creative Director & Co-founder",
         bio: "Pushing the boundaries of digital minimalism through considered design and purposeful interaction."
       },
