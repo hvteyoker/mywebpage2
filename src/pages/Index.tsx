@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Menu, X } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
 
 const Index = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true });
@@ -209,24 +213,35 @@ const Index = () => {
         className="px-6 py-20"
       >
         <h2 className="text-2xl mb-12 text-center">Selected Work</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <Swiper
+          modules={[Pagination]}
+          spaceBetween={20}
+          slidesPerView={1.2}
+          pagination={{ clickable: true }}
+          breakpoints={{
+            768: { slidesPerView: 2.2 },
+            1024: { slidesPerView: 3.2 }
+          }}
+          className="max-w-7xl mx-auto"
+        >
           {[1, 2, 3, 4, 5, 6].map((item) => (
-            <motion.div
-              key={item}
-              className="aspect-square bg-gray-100 hover:bg-gray-200 transition-colors duration-300 cursor-pointer flex items-center justify-center group relative overflow-hidden"
-              whileHover={{ scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-            >
-              <span className="relative z-10">Project {item}</span>
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-br from-white/5 to-black/5"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.div>
+            <SwiperSlide key={item}>
+              <motion.div
+                className="rounded-2xl overflow-hidden bg-gray-100 hover:bg-gray-200 transition-colors duration-300 cursor-pointer flex items-center justify-center group relative"
+                whileHover={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
+              >
+                <span className="relative z-10">Project {item}</span>
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-br from-white/5 to-black/5"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </motion.section>
 
       {/* Contact Section */}
