@@ -213,7 +213,15 @@ const Index = () => {
         transition={{ duration: 0.8 }}
         className="px-6 py-20"
       >
-        <h2 className="text-2xl mb-12 text-center">Selected Work</h2>
+        <motion.h2
+          className="text-2xl mb-12 text-center"
+          initial={{ opacity: 0, y: 10 }}
+          animate={workInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          Selected Work
+        </motion.h2>
+
         <Swiper
           modules={[Pagination]}
           spaceBetween={20}
@@ -225,15 +233,15 @@ const Index = () => {
           }}
           className="max-w-7xl mx-auto"
         >
-          {[1, 2, 3, 4, 5].map((item) => (
+          {[1, 2, 3, 4, 5, 6].map((item) => (
             <SwiperSlide key={item}>
               <motion.div
-                className="rounded-2xl overflow-hidden bg-gray-100 hover:bg-gray-200 transition-colors duration-350 cursor-pointer flex items-center justify-center group relative"
-                whileHover={{ scale: 0.95 }}
-                transition={{ duration: 0.3 }}
+                className="rounded-2xl overflow-hidden bg-gray-100 hover:bg-gray-200 transition-colors duration-300 cursor-pointer flex items-center justify-center group relative"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
               >
-                <span className="relative z-10">Project {item}</span>
-                <motion.div 
+                <span className="relative z-10 font-medium">Project {item}</span>
+                <motion.div
                   className="absolute inset-0 bg-gradient-to-br from-white/5 to-black/5"
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
