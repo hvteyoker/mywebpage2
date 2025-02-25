@@ -5,6 +5,13 @@
   text-align: center;
 }
 
+.container {
+  width: 800px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px 15px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
