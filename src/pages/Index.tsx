@@ -89,7 +89,7 @@ const Index = () => {
           Start a Project
         </motion.button>
       </motion.section>
-      
+
       {/* Manifesto Section */}
       <motion.section
         initial={{ opacity: 0 }}
@@ -134,7 +134,7 @@ const Index = () => {
           ))}
         </div>
       </motion.section>
-      
+
           {/* Founders Section */}
 <motion.section
   initial={{ opacity: 0 }}
@@ -146,6 +146,7 @@ const Index = () => {
     {[
       {
         img: "/alex.JPG", 
+        name: "Denis Avramenko",
         name: "Alexander Tatarnikov",
         role: "Creative Director & Co-founder",
         bio: "Pushing the boundaries of digital minimalism through considered design and purposeful interaction."
@@ -181,7 +182,7 @@ const Index = () => {
     ))}
   </div>
 </motion.section>
-      
+
       {/* About Section */}
       <motion.section
         ref={aboutRef}
@@ -224,12 +225,12 @@ const Index = () => {
           }}
           className="max-w-7xl mx-auto"
         >
-          {[1, 2, 3, 4, 5, 6].map((item) => (
+          {[1, 2, 3, 4, 5].map((item) => (
             <SwiperSlide key={item}>
               <motion.div
-                className="rounded-2xl overflow-hidden bg-gray-100 hover:bg-gray-200 transition-colors duration-300 cursor-pointer flex items-center justify-center group relative"
-                whileHover={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
+                className="rounded-2xl overflow-hidden bg-gray-100 hover:bg-gray-200 transition-colors duration-350 cursor-pointer flex items-center justify-center group relative"
+                whileHover={{ scale: 0.95 }}
+                transition={{ duration: 0.3 }}
               >
                 <span className="relative z-10">Project {item}</span>
                 <motion.div 
