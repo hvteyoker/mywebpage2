@@ -206,6 +206,8 @@ const Index = () => {
       </motion.section>
 
       {/* Work Section */}
+      return (
+    <div className="relative min-h-screen text-[#ffffff]">
       <motion.section
         ref={workRef}
         initial={{ opacity: 0, y: 20 }}
@@ -222,11 +224,11 @@ const Index = () => {
           Selected Work
         </motion.h2>
 
-        <Swiper
-          modules={[Pagination]}
+         <Swiper
+          modules={[Navigation]}
           spaceBetween={20}
           slidesPerView={1.2}
-          pagination={{ clickable: true }}
+          navigation
           breakpoints={{
             768: { slidesPerView: 2.2 },
             1024: { slidesPerView: 3.2 }
