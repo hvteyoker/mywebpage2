@@ -206,52 +206,66 @@ const Index = () => {
       </motion.section>
 
       {/* Work Section */}
-      <motion.section
-        ref={workRef}
-        initial={{ opacity: 0, y: 20 }}
-        animate={workInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8 }}
-        className="px-6 py-20"
-      >
-        <motion.h2
-          className="text-2xl mb-12 text-center"
-          initial={{ opacity: 0, y: 10 }}
-          animate={workInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          Selected Work
-        </motion.h2>
+<motion.section
+  ref={workRef}
+  initial={{ opacity: 0, y: 20 }}
+  animate={workInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.8 }}
+  className="px-6 py-20"
+>
+  <motion.h2
+    className="text-2xl mb-12 text-center"
+    initial={{ opacity: 0, y: 10 }}
+    animate={workInView ? { opacity: 1, y: 0 } : {}}
+    transition={{ duration: 0.6, delay: 0.2 }}
+  >
+    Selected Work
+  </motion.h2>
 
-        <Swiper
-          modules={[Pagination]}
-          spaceBetween={20}
-          slidesPerView={1.2}
-          pagination={{ clickable: true }}
-          breakpoints={{
-            768: { slidesPerView: 2.2 },
-            1024: { slidesPerView: 3.2 }
-          }}
-          className="max-w-7xl mx-auto"
-        >
-          {[1, 2, 3, 4, 5, 6].map((item) => (
-            <SwiperSlide key={item}>
-              <motion.div
-                className="rounded-2xl overflow-hidden bg-gray-100 hover:bg-gray-200 transition-colors duration-300 cursor-pointer flex items-center justify-center group relative"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <span className="relative z-10 font-medium">Project {item}</span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-white/5 to-black/5"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </motion.section>
+  <Swiper
+    modules={[Pagination, Navigation]} // Добавляем Navigation
+    spaceBetween={30}
+    slidesPerView={1}
+    pagination={{ clickable: true }}
+    navigation // Включаем стрелки
+    loop // Бесконечная прокрутка
+    className="max-w-4xl mx-auto"
+  >
+    {[
+      {
+        img: "/project1.jpg", // Замените на свои изображения
+        title: "Project 1",
+        desc: "Minimalist design with bold typography"
+      },
+      {
+        img: "/project2.jpg",
+        title: "Project 2",
+        desc: "Interactive web experience"
+      },
+      {
+        img: "/project3.jpg",
+        title: "Project 3",
+        desc: "Brand identity development"
+      }
+    ].map((project, index) => (
+      <SwiperSlide key={index}>
+        <div className="relative rounded-xl overflow-hidden group">
+          <img 
+            src={project.img} 
+            alt={project.title}
+            className="w-full h-[400px] object-cover"
+          />
+          <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="text-center p-6">
+              <h3 className="text-2xl font-medium mb-2">{project.title}</h3>
+              <p className="text-white/80">{project.desc}</p>
+            </div>
+          </div>
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</motion.section>
 
       {/* Contact Section */}
       <motion.section
