@@ -67,3 +67,32 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@layer components {
+  /* Кастомизация стрелок навигации */
+  .swiper-button-next,
+  .swiper-button-prev {
+    @apply text-white bg-black/30 hover:bg-black/50 rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300;
+  }
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    @apply text-sm font-bold;
+  }
+
+  /* Пагинация (точки) */
+  .swiper-pagination-bullet {
+    @apply bg-white/50 opacity-100;
+  }
+  .swiper-pagination-bullet-active {
+    @apply bg-white;
+  }
+
+  /* Анимация для fade-эффекта */
+  .fade-effect {
+    animation: fadeIn 1s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
